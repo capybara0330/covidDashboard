@@ -1,9 +1,11 @@
-import { Button } from "@/components/ui/button";
+import SelectCountry from "@/components/select-country";
+import DisplayStatistics from "@/components/display-statistics";
 
 function App() {
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <Button>Covid Dashboard</Button>
+      <SelectCountry />
+      <DisplayStatistics />
     </div>
   );
 }
