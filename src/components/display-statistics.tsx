@@ -6,12 +6,16 @@ import { fetchCovidData } from "@/services/disease";
 
 const STATISTICS: (keyof CovidData)[] = ["confirmed", "active", "recovered"];
 
-const DisplayStatistics = () => {
+type DisplayStatisticsProps = {
+    countryCode: string;
+};
+
+const DisplayStatistics = ({countryCode}: DisplayStatisticsProps) => {
     const [covidData, setCovidData] = useState<CovidData | null>(null);
 
     useEffect(() => {
-        fetchCovidData("US").then((data) => setCovidData(data));
-    }, []);
+        fetchCovidData(countryCode).then((data) => setCovidData(data));
+    }, [countryCode]); //refetch whenever countrycode changes
 
   return (
     <div className="flex w-full justify-between flex-col sm:flex-row gap-5">
